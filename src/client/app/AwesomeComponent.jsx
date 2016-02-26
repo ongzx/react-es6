@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 
 class AwesomeComponent extends React.Component {
 
@@ -17,7 +18,7 @@ class AwesomeComponent extends React.Component {
     return (
       <div>
         Likes : <span>{this.state.likesCount}</span>
-        <div><button onClick={this.onLike}>Like Me</button></div>
+        <div><Button bsStyle="primary" onClick={this.onLike}>Like Me</Button></div>
       </div>
     );
   }
