@@ -5,6 +5,8 @@ import Home from './components/Home.jsx';
 import Menu from './components/Menu.jsx';
 import MenuItem from './components/MenuItem.jsx';
 import Work from './components/Work.jsx';
+import About from './components/About.jsx';
+import AboutWork from './components/AboutWork.jsx';
 import Footer from './components/Footer.jsx';
 
 class AppWrapper extends React.Component {
@@ -26,8 +28,8 @@ class AppWrapper extends React.Component {
 		      	<Menu ref="left" alignment="left">
 	                <MenuItem hash="/">Home</MenuItem>
 	                <MenuItem hash="about">About Us</MenuItem>
-	                <MenuItem hash="work">What We Do</MenuItem>
-	                <MenuItem hash="clients">Clients</MenuItem>
+	                <MenuItem hash="aboutwork">What We Do</MenuItem>
+	                <MenuItem hash="work">Works</MenuItem>
 	                <MenuItem hash="news">News</MenuItem>
 	                <MenuItem hash="contact">Reach Us</MenuItem>
 	            </Menu>
@@ -43,9 +45,9 @@ class App extends React.Component {
 	  	return (
 	  		<Router>
 			    <Route path="/" component={AppWrapper}>
-			      	<Route path="about" component={AppWrapper}/>
+			      	<Route path="about" component={About}/>
+			      	<Route path="aboutwork" component={AboutWork}/>
   					<Route path="work" component={Work}/>
-  					<Route path="clients" component={AppWrapper}/>
   					<Route path="news" component={AppWrapper}/>
   					<Route path="contact" component={AppWrapper}/>
 			    </Route>

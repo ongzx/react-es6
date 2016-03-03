@@ -20,20 +20,25 @@ class CircleNav extends React.Component {
   	}
 
   	calculateDots() {
-
-  		let width = 400;
-    	let height = 400;
+  		console.log("resizing dots"+window.innerWidth);
+  		let width = 0;
+    	let height = 0;
+    	let radius = 0;
 
   		if (window.innerWidth < 768) {
-  			width = 300;
-	    	height = 300;
+  			width = 250;
+	    	height = 250;
+	    	radius = 125;
+  		} else {
+  			width = 450;
+	    	height = 450;
+	    	radius = 225;
   		}
 
-	    let radius = 200;
 	    let angle = 11;
 	    let total = this.props.dataList.length;
 	    let step = (2*Math.PI) / total;
-	    let dot_width = 10;
+	    let dot_width = 5;
 
 	    for (let i = 0; i< total; i++){
 	      	let x = Math.round(width/2 + radius * Math.cos(angle) - dot_width/2);

@@ -9,15 +9,23 @@ class Work extends React.Component {
 		super(props);
 		this.state = {
 			workList: [
-				{ id:1, title: "Work 1" },
-				{ id:2, title: "Work 2" },
-				{ id:3, title: "Work 3" },
-				{ id:4, title: "Work 4" },
-				{ id:5, title: "Work 5" },
-				{ id:6, title: "Work 6" },
-				{ id:7, title: "Work 7" },
-				{ id:8, title: "Work 8" },
-				{ id:9, title: "Work 9" }
+				{ id:1, title: "Journey", subtitle: "Qatar Airways" },
+				{ id:2, title: "F&B", subtitle: "Qatar Airways" },
+				{ id:3, title: "Premium Lounge", subtitle: "Qatar Airways" },
+				{ id:4, title: "Premium Class", subtitle: "Qatar Airways" },
+				{ id:5, title: "Destination", subtitle: "Qatar Airways" },
+				{ id:6, title: "From Africa to Asia", subtitle: "Qatar Airways" },
+				{ id:7, title: "From East Asia to Europe", subtitle: "Qatar Airways" },
+				{ id:8, title: "From Europe to Bali", subtitle: "Qatar Airways" },
+				{ id:9, title: "Private Jet Service", subtitle: "Qatar Executive" },
+				{ id:10, title: "Singapore Girl", subtitle: "Singapore Airlines" },
+				{ id:11, title: "First to Fly A380", subtitle: "Singapore Airlines" },
+				{ id:12, title: "Destination First to Fly A380", subtitle: "Singapore Airlines" },
+				{ id:13, title: "F1", subtitle: "Audi" },
+				{ id:14, title: "A8 Tunnel", subtitle: "Audi" },
+				{ id:15, title: "A4 Sound", subtitle: "Audi" },
+				{ id:16, title: "", subtitle: "Mercedes Benz" },
+				{ id:17, title: "", subtitle: "Raffles Hotel" }
 			]
 		}
 	}

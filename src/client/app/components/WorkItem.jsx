@@ -35,6 +35,7 @@ class WorkItem extends React.Component {
 			<Col sm={4} className="work-item" onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}>
 				<div className="overlay"></div>
 				<label className={itemClass}>{this.props.data.title}</label>
+				<small className={itemClass}>{this.props.data.subtitle}</small>
 			</Col>
 		)
 

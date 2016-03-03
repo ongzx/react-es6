@@ -2,6 +2,8 @@ import React from 'react';
 import cx from 'classnames';
 import {Grid, Col, Row} from 'react-bootstrap';
 import Scroll from 'react-scroll';
+import Menu from './Menu.jsx';
+import MenuItem from './MenuItem.jsx';
 
 let Link = Scroll.Link;
 let Element = Scroll.Element;
@@ -11,7 +13,43 @@ class HomeDetail extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.state = {
+			windowWidth:window.innerWidth,
+			windowHeight: window.innerHeight+60
+		}
+		this.showLeft = this.showLeft.bind(this);
+		this.handleResize = this.handleResize.bind(this);
 	}
+
+	componentDidMount() {
+
+	    Events.scrollEvent.register('begin', function(to, element) {
+	      	console.log("begin", arguments);
+	    });
+	 
+	    Events.scrollEvent.register('end', function(to, element) {
+	      	console.log("end", arguments);
+	    });
+
+	    window.addEventListener('resize', this.handleResize);
+  	}
+
+  	componentWillUnmount() {
+  		Events.scrollEvent.remove('begin');
+    	Events.scrollEvent.remove('end');
+	    window.removeEventListener('resize', this.handleResize);
+  	}
+
+  	handleResize() {
+  		this.setState({
+	      windowWidth: window.innerWidth,
+	      windowHeight: window.innerHeight + 60
+	    });
+  	}
+
+	showLeft () {
+        this.refs.innerLeft.show();
+    }
 
 	render() {
 		let navClasses = cx({
@@ -23,13 +61,35 @@ class HomeDetail extends React.Component {
 			'section':true,
 			'text-center':true,
 			'hidden': this.props.isHiddenDetail
-		})
+		});
+
+		let innerMenuStyle = {
+			'width': this.state.windowWidth,
+			'height':this.state.windowHeight
+		}
 
 		return (
 			<Element name="detail" className="element">
 				<div id="home-detail" className={sectionClass}>
+					<div className="inner-menu" style={innerMenuStyle}>
+						<Menu ref="innerLeft" alignment="left">
+			                <MenuItem hash="/">Home</MenuItem>
+			                <MenuItem hash="about">About Us</MenuItem>
+			                <MenuItem hash="work">What We Do</MenuItem>
+			                <MenuItem hash="clients">Clients</MenuItem>
+			                <MenuItem hash="news">News</MenuItem>
+			                <MenuItem hash="contact">Reach Us</MenuItem>
+			            </Menu>
+		            </div>
 		          	<div className={navClasses} ref="navRef">
 		            	<div className="nav-inner">
+		            		<img src={'./public/assets/images/logo.png'} id="logo" />
+		            		<button className="menu-btn" onClick={this.showLeft}><i className="fa fa-bars text-white"></i> Menu</button>
+		            		<Link activeClass="active" to="home" spy={true} smooth={true} offset={0} duration={500} >
+		            			<div className="timeline text-left">
+									<p className="text-white"><i className="fa fa-chevron-circle-left text-white"></i>Timeline</p>
+								</div>
+		            		</Link>
 		            	</div>
 		         	 </div>
 		          

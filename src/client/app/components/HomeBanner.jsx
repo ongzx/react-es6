@@ -25,24 +25,26 @@ class HomeBanner extends React.Component {
 	    };
 
 		return (
-			<div id="home" className="section text-center" style={divStyle}>
-				<Jumbotron className="vertical-center jumbotron">
-					<Grid className="no-pad">
-						<Row fluid={true}>
-							<Col sm={8} smOffset={2} className="text-center">
-								{this.props.children}
-							</Col>
-						</Row>
-					</Grid>
-					<Link activeClass="active" to="detail" spy={true} smooth={true} offset={50} duration={500} >
-						<div className="indicator text-center" onClick={this.props.indiClick}>
-							<p className="text-white">Click to see the case study</p>
-							<i className="fa fa-angle-down fa-4x text-white"></i>
-						</div>
-					</Link>
-				</Jumbotron>
-				<Footer></Footer>
-	        </div>
+			<Element name="home" className="element">
+				<div id="home" className="section text-center" style={divStyle}>
+					<Jumbotron className="vertical-center jumbotron">
+						<Grid className="no-pad">
+							<Row fluid={true}>
+								<Col sm={8} smOffset={2} className="text-center">
+									{this.props.children}
+								</Col>
+							</Row>
+						</Grid>
+						<Link activeClass="active" to="detail" spy={true} smooth={true} offset={50} duration={500} >
+							<div className="indicator text-center" onClick={this.props.indiClick}>
+								<p className="text-white">Click to see the case study</p>
+								<i className="fa fa-angle-down fa-4x text-white"></i>
+							</div>
+						</Link>
+					</Jumbotron>
+					<Footer></Footer>
+		        </div>
+	        </Element>
 		)
 	}
 
